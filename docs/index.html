@@ -26,6 +26,11 @@ main{max-width:1100px;margin:auto;padding:0 6vw 10vh}.grid{display:grid;grid-tem
 section{margin-top:6rem}h3{font-size:1.8rem;margin-bottom:1rem}pre{background:#ffffff0a;border:1px solid #ffffff14;padding:1rem;border-radius:14px;overflow:auto;color:#cfd3e6}
 details{border-bottom:1px solid #ffffff14;padding:1rem 0}summary{cursor:pointer;font-weight:600}a{color:#00d4ff}footer{text-align:center;color:var(--mut);padding:3rem}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.card{opacity:1;transform:none}}
+.bits{display:flex;gap:1rem;flex-wrap:wrap;margin:1.5rem 0}.bit{flex:1;min-width:120px;padding:1.2rem;border-radius:18px;border:1px solid var(--c);background:#ffffff08;color:var(--fg);cursor:pointer;font:inherit;transition:.3s;text-align:center}
+.bit b{display:block;font-size:3rem;font-family:ui-monospace,monospace;color:var(--c);text-shadow:0 0 24px var(--c)}.bit[aria-pressed=true]{opacity:.35;filter:grayscale(1)}.bit[aria-pressed=true] b{text-shadow:none}
+.code{font:700 clamp(2.5rem,8vw,5rem) ui-monospace,monospace;letter-spacing:.2em}.st{font-size:1.4rem;margin-top:.3rem}.st.on{color:#00d4ff;text-shadow:0 0 20px #00d4ff}
+.dec{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-top:1rem}.dec input{background:#ffffff0a;border:1px solid #ffffff30;color:var(--fg);padding:.7rem 1rem;border-radius:12px;font:1.1rem ui-monospace,monospace;width:14ch}
+.out{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin-top:1rem}.out div{padding:.8rem;border-radius:12px;background:#ffffff08}
 </style></head><body><div class="bg"></div>
 <header><div><h1>The Four Tenets of AI:<br>Cost, Bridge, Work, Theory</h1><p class="tag"><b>Each one has to be as low as possible.</b></p>
 <div class="btns"><a class="btn" href="https://github.com/fitzyracing1/ai-tenets/blob/main/RULES.md">Read the rules</a><a class="btn" href="https://github.com/fitzyracing1/ai-tenets">GitHub repo</a><a class="btn" href="https://github.com/fitzyracing1/bound-loop">bound-loop</a></div></div></header>
@@ -35,13 +40,27 @@ details{border-bottom:1px solid #ffffff14;padding:1rem 0}summary{cursor:pointer;
 <article class="card" style="--c:#ffb347"><span class="n">TENET 03</span><h2>Work</h2><p>Steps, retries, loops. Bounded and few — like <a href="https://github.com/fitzyracing1/bound-loop">bound-loop</a>.</p><p><small>Measure: steps &amp; retries per task</small></p><div class="meter"><i></i></div></article>
 <article class="card" style="--c:#ff5ca8"><span class="n">TENET 04</span><h2>Theory</h2><p>Unproven assumptions and unverified claims. Verify, or label it.</p><p><small>Measure: unverified claims</small></p><div class="meter"><i></i></div></article>
 </div>
+<section id="binary"><h3>Binary: the status code of an AI</h3><p>Active-low, like lit/dark: <b>0 = lit</b> (at minimum), <b>1 = dark</b> (too high). Bit order Cost Bridge Work Theory, MSB to LSB. <code>0000</code> = AI online, <code>1111</code> = fully dark. Tap a bit:</p>
+<div class="bits"><button class="bit" style="--c:#7c5cff" aria-pressed="false">Cost<b>0</b></button><button class="bit" style="--c:#00d4ff" aria-pressed="false">Bridge<b>0</b></button><button class="bit" style="--c:#ffb347" aria-pressed="false">Work<b>0</b></button><button class="bit" style="--c:#ff5ca8" aria-pressed="false">Theory<b>0</b></button></div>
+<div class="code" id="code">0000</div><div class="st on" id="st">AI online</div>
+<h3 style="margin-top:3rem">Byte decoder (extended 8-bit)</h3><p>2 bits per tenet: <code>00</code> none, <code>01</code> low, <code>10</code> high, <code>11</code> over limit. Enter hex (<code>0x12</code>) or 8 bits.</p>
+<div class="dec"><input id="byte" value="0x12" aria-label="byte"><span id="bcode"></span></div><div class="out" id="out"></div></section>
 <section><h3>Plug it into your AI</h3><p>The repo ships drop-in files for the tools you already use: <code>AGENTS.md</code>, <code>CLAUDE.md</code>, <code>.cursor/rules/ai-tenets.mdc</code>, <code>.github/copilot-instructions.md</code>, <code>skills/ai-tenets/SKILL.md</code>, <a href="llms.txt">llms.txt</a>, <a href="llms-full.txt">llms-full.txt</a>, <a href="tenets.json">tenets.json</a>.</p>
 <pre>curl -O https://raw.githubusercontent.com/fitzyracing1/ai-tenets/main/AGENTS.md</pre></section>
 <section><h3>FAQ</h3>
 <details><summary>What are the four tenets of AI?</summary><p>Cost, Bridge, Work and Theory — each must be as low as possible.</p></details>
 <details><summary>What does Bridge mean?</summary><p>The integration hops (APIs, tools, translation layers) between a model and the real world.</p></details>
 <details><summary>Why is Theory a cost?</summary><p>Unverified assumptions are hidden debt that fails silently later.</p></details>
+<details><summary>What does 0000 mean?</summary><p>AI online: all four tenets lit (minimal). Any 1 bit is a dark tenet.</p></details>
 <details><summary>Can I trade one tenet for another?</summary><p>Only if the total goes down.</p></details></section></main>
 <footer>MIT © 2026 Joshua Almeida · <a href="https://github.com/fitzyracing1">@fitzyracing1</a></footer>
 <script>const o=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('in')),{threshold:.15});document.querySelectorAll('.card').forEach((c,i)=>{c.style.transitionDelay=i*120+'ms';o.observe(c)})</script>
+<script src="tenets.js"></script><script>
+const B=[...document.querySelectorAll('.bit')],N=['Cost','Bridge','Work','Theory'],M=['too expensive','too much bridge','too much work','relying on an unproven guess'];
+function up(){const c=B.map(b=>b.getAttribute('aria-pressed')==='true'?'1':'0').join('');B.forEach((b,i)=>b.querySelector('b').textContent=c[i]);code.textContent=c;
+const d=[...c].map((x,i)=>x==='1'?M[i]:0).filter(Boolean);st.textContent=c==='0000'?'AI online':c==='1111'?'Fully dark':'Dark: '+d.join(' · ');st.className='st'+(c==='0000'?' on':'')}
+B.forEach(b=>b.onclick=()=>{b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true');up()});
+function dec(){let v=byte.value.trim(),n=/^0x/i.test(v)?parseInt(v,16):/^[01]{8}$/.test(v)?parseInt(v,2):NaN;if(isNaN(n)||n>255){bcode.textContent='enter 0x00–0xff or 8 bits';out.innerHTML='';return}
+const r=decode8(n);bcode.textContent=n.toString(2).padStart(8,'0').replace(/(..)/g,'$1 ')+' → 4-bit '+r.code4+(r.code4==='0000'?' (AI online)':'');out.innerHTML=N.map(t=>`<div><small>${t}</small><br><b>${r[t.toLowerCase()]}</b></div>`).join('')}
+byte.oninput=dec;dec();up();</script>
 </body></html>

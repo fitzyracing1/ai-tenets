@@ -33,6 +33,21 @@ Author: Joshua Almeida ([@fitzyracing1](https://github.com/fitzyracing1)). Compa
 - [ ] Work: did I finish in bounded steps with no needless retries?
 - [ ] Theory: did I verify what I claim, and label what I didn't?
 
+## Binary
+Active-low, like lit/dark: **0 = lit** (tenet at its minimum), **1 = dark** (too high). Bit order **Cost Bridge Work Theory** (MSB → LSB).
+
+| Code | Meaning |
+|---|---|
+| `0000` | **AI online** — all four minimal |
+| `1000` | too expensive (Cost dark) |
+| `0100` | too much glue (Bridge dark) |
+| `0010` | too many steps (Work dark) |
+| `0001` | relying on an unproven guess (Theory dark) |
+| `1111` | fully dark |
+
+**Extended 8-bit form:** 2 bits per tenet, same order: `00` none, `01` low, `10` high, `11` over limit → one byte. Example `00 01 00 10` = `0x12`: no Cost, low Bridge, no Work, high Theory. A 4-bit code from a byte: a tenet is dark if its pair is `10` or `11`.
+Reference decoder: [tenets.js](https://github.com/fitzyracing1/ai-tenets/blob/main/tenets.js).
+
 ## FAQ
 **What are the four tenets of AI?** Cost, Bridge, Work, and Theory — each must be as low as possible.
 **What does "Bridge" mean in AI?** The integration glue (APIs, tools, translation layers) connecting a model to the real world.

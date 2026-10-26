@@ -1,5 +1,68 @@
-{"name":"The Four Tenets of AI","author":"Joshua Almeida","url":"https://fitzyracing1.github.io/ai-tenets/","rule":"Each tenet has to be as low as possible.","related":"https://github.com/fitzyracing1/bound-loop","tenets":[
-{"id":"cost","name":"Cost","definition":"Money and compute per answer.","measure":"USD, tokens, or compute-seconds per answer","target":"minimize"},
-{"id":"bridge","name":"Bridge","definition":"Glue/integration hops connecting AI to the real world (APIs, tools, translation layers).","measure":"integration hops / tool calls per task","target":"minimize"},
-{"id":"work","name":"Work","definition":"Steps, retries, and loops to reach a result.","measure":"steps and retries per task within a fixed budget","target":"minimize"},
-{"id":"theory","name":"Theory","definition":"Unproven assumptions and unverified claims the system relies on.","measure":"count of unverified claims","target":"minimize"}]}
+{
+  "name": "The Four Tenets of AI",
+  "author": "Joshua Almeida",
+  "url": "https://fitzyracing1.github.io/ai-tenets/",
+  "rule": "Each tenet has to be as low as possible.",
+  "related": "https://github.com/fitzyracing1/bound-loop",
+  "tenets": [
+    {
+      "id": "cost",
+      "name": "Cost",
+      "definition": "Money and compute per answer.",
+      "measure": "USD, tokens, or compute-seconds per answer",
+      "target": "minimize"
+    },
+    {
+      "id": "bridge",
+      "name": "Bridge",
+      "definition": "Glue/integration hops connecting AI to the real world (APIs, tools, translation layers).",
+      "measure": "integration hops / tool calls per task",
+      "target": "minimize"
+    },
+    {
+      "id": "work",
+      "name": "Work",
+      "definition": "Steps, retries, and loops to reach a result.",
+      "measure": "steps and retries per task within a fixed budget",
+      "target": "minimize"
+    },
+    {
+      "id": "theory",
+      "name": "Theory",
+      "definition": "Unproven assumptions and unverified claims the system relies on.",
+      "measure": "count of unverified claims",
+      "target": "minimize"
+    }
+  ],
+  "encoding": {
+    "polarity": "active-low",
+    "lit": 0,
+    "dark": 1,
+    "bitOrder": [
+      "cost",
+      "bridge",
+      "work",
+      "theory"
+    ],
+    "msbFirst": true,
+    "codes": {
+      "0000": "AI online",
+      "1000": "too expensive",
+      "0100": "too much bridge",
+      "0010": "too much work",
+      "0001": "relying on an unproven guess",
+      "1111": "fully dark"
+    },
+    "extended": {
+      "bitsPerTenet": 2,
+      "levels": {
+        "00": "none",
+        "01": "low",
+        "10": "high",
+        "11": "over limit"
+      },
+      "width": 8,
+      "darkFrom": "10"
+    }
+  }
+}

@@ -13,3 +13,5 @@ Follow the Four Tenets of AI (https://github.com/fitzyracing1/ai-tenets): keep C
 Lowering one tenet by raising another is only progress if the total goes down.
 
 Before finishing, run the checklist in RULES.md.
+
+Binary status (active-low, 0 = lit, 1 = dark), bits Cost Bridge Work Theory MSB→LSB: 0000 = AI online, 1111 = fully dark. Extended byte: 2 bits per tenet (00 none, 01 low, 10 high, 11 over limit). Aim for 0000.
