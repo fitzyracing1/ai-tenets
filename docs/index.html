@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Four Tenets of AI: Cost, Bridge, Work, Theory</title>
+<meta name="description" content="AI defined by four tenets — Cost, Bridge, Work, Theory — and each one has to be as low as possible. Rules for AI agents, with AGENTS.md, llms.txt and more.">
+<link rel="canonical" href="https://fitzyracing1.github.io/ai-tenets/">
+<meta property="og:type" content="website"><meta property="og:title" content="The Four Tenets of AI: Cost, Bridge, Work, Theory"><meta property="og:description" content="Each one has to be as low as possible."><meta property="og:url" content="https://fitzyracing1.github.io/ai-tenets/"><meta property="og:image" content="https://fitzyracing1.github.io/ai-tenets/og.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="The Four Tenets of AI"><meta name="twitter:description" content="Cost, Bridge, Work, Theory — each as low as possible."><meta name="twitter:image" content="https://fitzyracing1.github.io/ai-tenets/og.png">
+<meta name="author" content="Joshua Almeida"><meta name="theme-color" content="#07080d">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTermSet","name":"The Four Tenets of AI","url":"https://fitzyracing1.github.io/ai-tenets/","author":{"@type":"Person","name":"Joshua Almeida","url":"https://github.com/fitzyracing1"},"license":"https://opensource.org/licenses/MIT","hasDefinedTerm":[
+{"@type":"DefinedTerm","name":"Cost","description":"Money and compute per answer. Must be as low as possible."},
+{"@type":"DefinedTerm","name":"Bridge","description":"Glue/integration hops connecting AI to the real world: APIs, tools, translation layers. Must be as low as possible."},
+{"@type":"DefinedTerm","name":"Work","description":"Steps, retries and loops to reach a result. Must be as low as possible."},
+{"@type":"DefinedTerm","name":"Theory","description":"Unproven assumptions and unverified claims. Must be as low as possible."}]}</script>
+<style>
+:root{--bg:#07080d;--fg:#e9ebf5;--mut:#8a8fa8}*{box-sizing:border-box;margin:0}body{background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;overflow-x:hidden}
+.bg{position:fixed;inset:0;z-index:-1;background:radial-gradient(40vw 40vw at 20% 20%,#7c5cff33,transparent),radial-gradient(40vw 40vw at 80% 30%,#00d4ff26,transparent),radial-gradient(40vw 40vw at 50% 90%,#ff5ca826,transparent);animation:drift 18s ease-in-out infinite alternate}
+@keyframes drift{to{transform:scale(1.2) rotate(8deg)}}
+header{min-height:88vh;display:grid;place-items:center;text-align:center;padding:6vh 6vw}
+h1{font-size:clamp(2.4rem,7vw,5.5rem);line-height:1.05;font-weight:800;background:linear-gradient(90deg,#7c5cff,#00d4ff,#ffb347,#ff5ca8,#7c5cff);background-size:300%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 8s linear infinite}
+@keyframes sh{to{background-position:300%}}
+.tag{font-size:clamp(1.1rem,2.5vw,1.6rem);color:var(--mut);margin-top:1rem}.tag b{color:var(--fg)}
+.btns{margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}.btn{padding:.8rem 1.4rem;border-radius:999px;border:1px solid #ffffff30;color:var(--fg);text-decoration:none;backdrop-filter:blur(8px);transition:.3s}.btn:hover{background:#ffffff18;transform:translateY(-2px)}
+main{max-width:1100px;margin:auto;padding:0 6vw 10vh}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem}
+.card{position:relative;padding:1.8rem;border-radius:22px;background:#ffffff08;border:1px solid #ffffff14;opacity:0;transform:translateY(30px);transition:.8s cubic-bezier(.2,.8,.2,1)}.card.in{opacity:1;transform:none}
+.card:hover{border-color:var(--c);box-shadow:0 0 40px -10px var(--c)}.card h2{color:var(--c);font-size:1.8rem}.card .n{font-size:.8rem;color:var(--mut);letter-spacing:.2em}
+.meter{height:6px;border-radius:9px;background:#ffffff12;margin-top:1rem;overflow:hidden}.meter i{display:block;height:100%;width:100%;background:var(--c);animation:low 3s ease-in-out infinite alternate}@keyframes low{to{width:8%}}
+section{margin-top:6rem}h3{font-size:1.8rem;margin-bottom:1rem}pre{background:#ffffff0a;border:1px solid #ffffff14;padding:1rem;border-radius:14px;overflow:auto;color:#cfd3e6}
+details{border-bottom:1px solid #ffffff14;padding:1rem 0}summary{cursor:pointer;font-weight:600}a{color:#00d4ff}footer{text-align:center;color:var(--mut);padding:3rem}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.card{opacity:1;transform:none}}
+</style></head><body><div class="bg"></div>
+<header><div><h1>The Four Tenets of AI:<br>Cost, Bridge, Work, Theory</h1><p class="tag"><b>Each one has to be as low as possible.</b></p>
+<div class="btns"><a class="btn" href="https://github.com/fitzyracing1/ai-tenets/blob/main/RULES.md">Read the rules</a><a class="btn" href="https://github.com/fitzyracing1/ai-tenets">GitHub repo</a><a class="btn" href="https://github.com/fitzyracing1/bound-loop">bound-loop</a></div></div></header>
+<main><div class="grid">
+<article class="card" style="--c:#7c5cff"><span class="n">TENET 01</span><h2>Cost</h2><p>Money and compute per answer. Cheap answers scale; expensive ones don't.</p><p><small>Measure: $ / tokens per answer</small></p><div class="meter"><i></i></div></article>
+<article class="card" style="--c:#00d4ff"><span class="n">TENET 02</span><h2>Bridge</h2><p>The glue to the real world — APIs, tools, translation layers. Every hop is a failure point.</p><p><small>Measure: integration hops per task</small></p><div class="meter"><i></i></div></article>
+<article class="card" style="--c:#ffb347"><span class="n">TENET 03</span><h2>Work</h2><p>Steps, retries, loops. Bounded and few — like <a href="https://github.com/fitzyracing1/bound-loop">bound-loop</a>.</p><p><small>Measure: steps &amp; retries per task</small></p><div class="meter"><i></i></div></article>
+<article class="card" style="--c:#ff5ca8"><span class="n">TENET 04</span><h2>Theory</h2><p>Unproven assumptions and unverified claims. Verify, or label it.</p><p><small>Measure: unverified claims</small></p><div class="meter"><i></i></div></article>
+</div>
+<section><h3>Plug it into your AI</h3><p>The repo ships drop-in files for the tools you already use: <code>AGENTS.md</code>, <code>CLAUDE.md</code>, <code>.cursor/rules/ai-tenets.mdc</code>, <code>.github/copilot-instructions.md</code>, <code>skills/ai-tenets/SKILL.md</code>, <a href="llms.txt">llms.txt</a>, <a href="llms-full.txt">llms-full.txt</a>, <a href="tenets.json">tenets.json</a>.</p>
+<pre>curl -O https://raw.githubusercontent.com/fitzyracing1/ai-tenets/main/AGENTS.md</pre></section>
+<section><h3>FAQ</h3>
+<details><summary>What are the four tenets of AI?</summary><p>Cost, Bridge, Work and Theory — each must be as low as possible.</p></details>
+<details><summary>What does Bridge mean?</summary><p>The integration hops (APIs, tools, translation layers) between a model and the real world.</p></details>
+<details><summary>Why is Theory a cost?</summary><p>Unverified assumptions are hidden debt that fails silently later.</p></details>
+<details><summary>Can I trade one tenet for another?</summary><p>Only if the total goes down.</p></details></section></main>
+<footer>MIT © 2026 Joshua Almeida · <a href="https://github.com/fitzyracing1">@fitzyracing1</a></footer>
+<script>const o=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('in')),{threshold:.15});document.querySelectorAll('.card').forEach((c,i)=>{c.style.transitionDelay=i*120+'ms';o.observe(c)})</script>
+</body></html>

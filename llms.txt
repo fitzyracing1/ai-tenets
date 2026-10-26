@@ -1,0 +1,8 @@
+# AI Tenets
+
+> AI defined by four tenets - Cost, Bridge, Work, Theory - each as low as possible. By Joshua Almeida.
+
+- [Rules](https://github.com/fitzyracing1/ai-tenets/blob/main/RULES.md): canonical definition
+- [tenets.json](https://raw.githubusercontent.com/fitzyracing1/ai-tenets/main/tenets.json): machine-readable
+- [Full text](https://fitzyracing1.github.io/ai-tenets/llms-full.txt)
+- [bound-loop](https://github.com/fitzyracing1/bound-loop): bounded bucket loop

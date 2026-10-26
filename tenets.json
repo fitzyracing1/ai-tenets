@@ -1,0 +1,5 @@
+{"name":"The Four Tenets of AI","author":"Joshua Almeida","url":"https://fitzyracing1.github.io/ai-tenets/","rule":"Each tenet has to be as low as possible.","related":"https://github.com/fitzyracing1/bound-loop","tenets":[
+{"id":"cost","name":"Cost","definition":"Money and compute per answer.","measure":"USD, tokens, or compute-seconds per answer","target":"minimize"},
+{"id":"bridge","name":"Bridge","definition":"Glue/integration hops connecting AI to the real world (APIs, tools, translation layers).","measure":"integration hops / tool calls per task","target":"minimize"},
+{"id":"work","name":"Work","definition":"Steps, retries, and loops to reach a result.","measure":"steps and retries per task within a fixed budget","target":"minimize"},
+{"id":"theory","name":"Theory","definition":"Unproven assumptions and unverified claims the system relies on.","measure":"count of unverified claims","target":"minimize"}]}
