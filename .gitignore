@@ -1,0 +1,6 @@
+binary.png
+screenshot.png
+reach.png
+__pycache__/
+*.egg-info/
+build/

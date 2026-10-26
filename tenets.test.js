@@ -4,3 +4,7 @@ a.strictEqual(decode4('1000').cost,'dark');a.strictEqual(decode4('0001').theory,
 a.strictEqual(encode4({cost:1}),'1000');
 const d=decode8(0x12);a.strictEqual(d.bridge,'low');a.strictEqual(d.theory,'high');a.strictEqual(d.code4,'0001');
 a.strictEqual(decode8(0xff).code4,'1111');console.log('all tests lit');
+const {Meter}=require('./tenets');
+let m=new Meter();m.cost(0.01);m.hop();m.step();m.claim(true);a.strictEqual(m.code,'0000');a.strictEqual(m.byte,0x54);
+m=new Meter({cost:1});m.cost(5);a.strictEqual(m.code,'1000');m=new Meter();m.claim();a.strictEqual(m.code,'0001');
+m=new Meter({cost:1,tokens:100,bridge:1,work:1});m.cost(0,1000);m.hop(5);m.step(5);m.claim();m.claim();m.claim();a.strictEqual(m.byte,0xff);console.log('meter parity lit');

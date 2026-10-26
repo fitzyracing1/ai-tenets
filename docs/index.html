@@ -31,6 +31,8 @@ details{border-bottom:1px solid #ffffff14;padding:1rem 0}summary{cursor:pointer;
 .code{font:700 clamp(2.5rem,8vw,5rem) ui-monospace,monospace;letter-spacing:.2em}.st{font-size:1.4rem;margin-top:.3rem}.st.on{color:#00d4ff;text-shadow:0 0 20px #00d4ff}
 .dec{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-top:1rem}.dec input{background:#ffffff0a;border:1px solid #ffffff30;color:var(--fg);padding:.7rem 1rem;border-radius:12px;font:1.1rem ui-monospace,monospace;width:14ch}
 .out{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin-top:1rem}.out div{padding:.8rem;border-radius:12px;background:#ffffff08}
+.fix{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin-top:1.2rem}.fx{padding:1.4rem;border-radius:18px;background:#ffffff08;border:1px solid #ffffff14;border-left:4px solid var(--c);transition:.3s}.fx:hover{transform:translateY(-4px);box-shadow:0 10px 40px -15px var(--c)}
+.fx code{font-size:1.4rem;color:var(--c)}.fx h4{margin:.3rem 0;font-size:1.2rem}.arrow{font:700 1.4rem ui-monospace,monospace;margin-top:1.4rem;color:var(--mut)}.arrow b{color:#00d4ff;text-shadow:0 0 18px #00d4ff}
 </style></head><body><div class="bg"></div>
 <header><div><h1>The Four Tenets of AI:<br>Cost, Bridge, Work, Theory</h1><p class="tag"><b>Each one has to be as low as possible.</b></p>
 <div class="btns"><a class="btn" href="https://github.com/fitzyracing1/ai-tenets/blob/main/RULES.md">Read the rules</a><a class="btn" href="https://github.com/fitzyracing1/ai-tenets">GitHub repo</a><a class="btn" href="https://github.com/fitzyracing1/bound-loop">bound-loop</a></div></div></header>
@@ -45,6 +47,17 @@ details{border-bottom:1px solid #ffffff14;padding:1rem 0}summary{cursor:pointer;
 <div class="code" id="code">0000</div><div class="st on" id="st">AI online</div>
 <h3 style="margin-top:3rem">Byte decoder (extended 8-bit)</h3><p>2 bits per tenet: <code>00</code> none, <code>01</code> low, <code>10</code> high, <code>11</code> over limit. Enter hex (<code>0x12</code>) or 8 bits.</p>
 <div class="dec"><input id="byte" value="0x12" aria-label="byte"><span id="bcode"></span></div><div class="out" id="out"></div></section>
+<section id="reach"><h3>How to reach 0000</h3><p>One concrete fix for each dark bit. Flip them all to lit and the AI is online.</p><div class="fix">
+<div class="fx" style="--c:#7c5cff"><code>1000</code><h4>Cost</h4><p>Cache repeated answers, use the smallest model that passes, spend fewer tokens.</p></div>
+<div class="fx" style="--c:#00d4ff"><code>0100</code><h4>Bridge</h4><p>Call tools and data directly. Drop wrappers and conversions. Fewer hops.</p></div>
+<div class="fx" style="--c:#ffb347"><code>0010</code><h4>Work</h4><p>Stop when it is good enough. Hard step and retry caps, like <a href="https://github.com/fitzyracing1/bound-loop">bound-loop</a>.</p></div>
+<div class="fx" style="--c:#ff5ca8"><code>0001</code><h4>Theory</h4><p>Check claims against sources and tests before relying on them.</p></div></div>
+<p class="arrow">1111 → 0111 → 0011 → 0001 → <b>0000 AI online</b></p>
+<p style="margin-top:1rem">Measure it: <a href="https://github.com/fitzyracing1/ai-tenets/tree/main/tenets_meter">tenets_meter</a> (Python, zero deps) or <a href="tenets.js">tenets.js</a>.</p>
+<pre>from tenets_meter import Meter
+with Meter(limits={"cost": 0.05, "bridge": 2, "work": 5, "theory": 0}) as m:
+    m.cost(usd=0.01); m.hop(); m.step(); m.claim(verified=True)
+print(m.code, m.status)   # 0000 AI online</pre></section>
 <section><h3>Plug it into your AI</h3><p>The repo ships drop-in files for the tools you already use: <code>AGENTS.md</code>, <code>CLAUDE.md</code>, <code>.cursor/rules/ai-tenets.mdc</code>, <code>.github/copilot-instructions.md</code>, <code>skills/ai-tenets/SKILL.md</code>, <a href="llms.txt">llms.txt</a>, <a href="llms-full.txt">llms-full.txt</a>, <a href="tenets.json">tenets.json</a>.</p>
 <pre>curl -O https://raw.githubusercontent.com/fitzyracing1/ai-tenets/main/AGENTS.md</pre></section>
 <section><h3>FAQ</h3>
