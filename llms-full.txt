@@ -69,6 +69,16 @@ print(m.code, hex(m.byte), m.status)   # 0000 0x54 AI online
 CLI: `pip install git+https://github.com/fitzyracing1/ai-tenets` then `tenets-meter run.json` (`--json`, `--strict` exits 1 unless 0000). Run log: `{"limits": {...}, "events": [{"type": "cost", "usd": 0.01}, {"type": "hop"}, {"type": "step"}, {"type": "claim", "verified": true}]}`.
 Meter levels per tenet: `00` none, `01` within limit, `10` over limit, `11` more than 2x the limit.
 
+## The ladder
+Four levels, each building on the last: **exact → finite → infinite → deciding what's enough.**
+
+| Level | Name | Meaning |
+|---|---|---|
+| 1 | **Bit** | The smallest exact value: one light, lit or dark (active-low: lit = 0, dark = 1). |
+| 2 | **Local** | One finite machine; nothing outside it, no network hops. |
+| 3 | **Pi** | π (3.14159…) is infinite, never-ending, non-repeating; no computer can hold it exactly, only round it. |
+| 4 | **Tenets** | All previous types, judged by Cost, Bridge, Work, Theory: decides how many digits are enough. More precision costs compute (Cost bit); trusting a rounded value unchecked raises the Theory bit. Goal `0000` = AI online. |
+
 ## FAQ
 **What are the four tenets of AI?** Cost, Bridge, Work, and Theory — each must be as low as possible.
 **What does "Bridge" mean in AI?** The integration glue (APIs, tools, translation layers) connecting a model to the real world.

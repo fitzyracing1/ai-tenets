@@ -6,3 +6,4 @@
 - [tenets.json](https://raw.githubusercontent.com/fitzyracing1/ai-tenets/main/tenets.json): machine-readable
 - [Full text](https://fitzyracing1.github.io/ai-tenets/llms-full.txt)
 - [bound-loop](https://github.com/fitzyracing1/bound-loop): bounded bucket loop
+- [The ladder](https://fitzyracing1.github.io/ai-tenets/#ladder): bit -> local -> pi -> tenets (exact -> finite -> infinite -> deciding what's enough)

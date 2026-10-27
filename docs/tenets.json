@@ -64,5 +64,35 @@
       "width": 8,
       "darkFrom": "10"
     }
+  },
+  "ladder": {
+    "summary": "exact -> finite -> infinite -> deciding what's enough",
+    "url": "https://fitzyracing1.github.io/ai-tenets/#ladder",
+    "levels": [
+      {
+        "level": 1,
+        "id": "bit",
+        "name": "Bit",
+        "definition": "The smallest exact value: one light, lit or dark (active-low: lit = 0, dark = 1)."
+      },
+      {
+        "level": 2,
+        "id": "local",
+        "name": "Local",
+        "definition": "One finite machine; nothing outside it, no network hops."
+      },
+      {
+        "level": 3,
+        "id": "pi",
+        "name": "Pi",
+        "definition": "Pi (3.14159...) is infinite, never-ending, non-repeating; no computer can hold it exactly, only round it."
+      },
+      {
+        "level": 4,
+        "id": "tenets",
+        "name": "Tenets",
+        "definition": "Cost, Bridge, Work, Theory decide how many digits are enough. More precision costs compute (Cost bit); trusting a rounded value unchecked raises the Theory bit. Goal 0000 = AI online."
+      }
+    ]
   }
 }

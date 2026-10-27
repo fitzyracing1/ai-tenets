@@ -59,6 +59,12 @@ details{border-bottom:1px solid #ffffff14;padding:1rem 0}summary{cursor:pointer;
 with Meter(limits={"cost": 0.05, "bridge": 2, "work": 5, "theory": 0}) as m:
     m.cost(usd=0.01); m.hop(); m.step(); m.claim(verified=True)
 print(m.code, m.status)   # 0000 AI online</pre></section>
+<section id="ladder"><h3>The ladder</h3><p>Four levels, each building on the last: exact → finite → infinite → deciding what's enough.</p><div class="fix">
+<div class="fx" style="--c:#7c5cff"><code>1</code><h4>Bit</h4><p>The smallest exact value: one light, lit or dark. Active-low: lit = 0, dark = 1.</p></div>
+<div class="fx" style="--c:#00d4ff"><code>2</code><h4>Local</h4><p>One finite machine. Nothing outside it, no network hops.</p></div>
+<div class="fx" style="--c:#ffb347"><code>3</code><h4>Pi</h4><p>π = 3.14159… is infinite, never-ending, non-repeating. No computer can hold it exactly, only round it.</p></div>
+<div class="fx" style="--c:#ff5ca8"><code>4</code><h4>Tenets</h4><p>Cost, Bridge, Work, Theory decide how many digits are enough. More precision costs compute (Cost bit); trusting a rounded value unchecked raises the Theory bit.</p></div></div>
+<p class="arrow">bit → local → pi → tenets → <b>0000 AI online</b></p></section>
 <section><h3>Plug it into your AI</h3><p>The repo ships drop-in files for the tools you already use: <code>AGENTS.md</code>, <code>CLAUDE.md</code>, <code>.cursor/rules/ai-tenets.mdc</code>, <code>.github/copilot-instructions.md</code>, <code>skills/ai-tenets/SKILL.md</code>, <a href="llms.txt">llms.txt</a>, <a href="llms-full.txt">llms-full.txt</a>, <a href="tenets.json">tenets.json</a>.</p>
 <pre>curl -O https://raw.githubusercontent.com/fitzyracing1/ai-tenets/main/AGENTS.md</pre></section>
 <section><h3>FAQ</h3>
