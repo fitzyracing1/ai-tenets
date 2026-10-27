@@ -8,28 +8,28 @@
     {
       "id": "cost",
       "name": "Cost",
-      "definition": "Money and compute per answer.",
+      "definition": "Money and compute per answer. A bound any superintelligence must stay inside.",
       "measure": "USD, tokens, or compute-seconds per answer",
       "target": "minimize"
     },
     {
       "id": "bridge",
       "name": "Bridge",
-      "definition": "Glue/integration hops connecting AI to the real world (APIs, tools, translation layers).",
+      "definition": "Glue/integration hops connecting AI to the real world (APIs, tools, translation layers). A bound any superintelligence must stay inside.",
       "measure": "integration hops / tool calls per task",
       "target": "minimize"
     },
     {
       "id": "work",
       "name": "Work",
-      "definition": "Steps, retries, and loops to reach a result.",
+      "definition": "Steps, retries, and loops to reach a result. A bound any superintelligence must stay inside.",
       "measure": "steps and retries per task within a fixed budget",
       "target": "minimize"
     },
     {
       "id": "theory",
       "name": "Theory",
-      "definition": "Unproven assumptions and unverified claims the system relies on.",
+      "definition": "Unproven assumptions and unverified claims the system relies on. A bound any superintelligence must stay inside.",
       "measure": "count of unverified claims",
       "target": "minimize"
     }
@@ -94,5 +94,13 @@
         "definition": "Cost, Bridge, Work, Theory decide how many digits are enough. More precision costs compute (Cost bit); trusting a rounded value unchecked raises the Theory bit. Goal 0000 = AI online."
       }
     ]
+  },
+  "title": "The Tenets of Superintelligence",
+  "framing": "The four tenets are the tenets of superintelligence: the bounds any superintelligence must stay inside. A system earns more room only by staying lit (the growing tenet limits), and one dark action tightens it back.",
+  "growingLimits": {
+    "description": "Limits start tight and loosen one step after a run of lit actions, up to a fixed ceiling; one dark action tightens them back one step.",
+    "grow": "stay lit",
+    "tighten": "one dark action",
+    "reference": "https://github.com/fitzyracing1/robot-ros"
   }
 }

@@ -1,8 +1,16 @@
-# The Four Tenets of AI: Cost, Bridge, Work, Theory
+# The Tenets of Superintelligence: Cost, Bridge, Work, Theory
 
-**Definition.** An AI system is judged by four tenets — **Cost, Bridge, Work, Theory** — and *each one has to be as low as possible*. The best AI is the one that reaches a correct, useful result with the least money, the fewest integration hops, the fewest steps, and the fewest unproven assumptions.
+**Definition.** The tenets of superintelligence are the bounds any superintelligence must stay inside. An AI system, up to and including a superintelligence, is judged by four tenets — **Cost, Bridge, Work, Theory** — and *each one has to be as low as possible*. The best AI is the one that reaches a correct, useful result with the least money, the fewest integration hops, the fewest steps, and the fewest unproven assumptions.
 
 Author: Joshua Almeida ([@fitzyracing1](https://github.com/fitzyracing1)). Companion project: [bound-loop](https://github.com/fitzyracing1/bound-loop) — a bounded bucket loop that puts a hard ceiling on Work and Cost.
+
+## The tenets of superintelligence
+Cost, Bridge, Work and Theory are **the tenets of superintelligence**: the bounds any superintelligence must stay inside, however capable it is.
+- **Bounded:** every action is scored as a 4-bit code; `0000` (all lit) is online, any `1` is a dark tenet.
+- **Growing tenet limits:** a system starts with tight limits and earns more room only by staying lit, one step at a time, up to a fixed ceiling.
+- **One dark action tightens it back:** a single dark action lowers the limits a step; room is earned, never assumed.
+
+This is a framing and a rule set, not a claim that any superintelligence exists today. A reference implementation of the growing tenet limits is in [robot-ros](https://github.com/fitzyracing1/robot-ros).
 
 ## 1. Cost
 **What it is:** money and compute spent per answer (tokens, GPU time, API fees, energy).
@@ -80,7 +88,8 @@ Four levels, each building on the last: **exact → finite → infinite → deci
 | 4 | **Tenets** | All previous types, judged by Cost, Bridge, Work, Theory: decides how many digits are enough. More precision costs compute (Cost bit); trusting a rounded value unchecked raises the Theory bit. Goal `0000` = AI online. |
 
 ## FAQ
-**What are the four tenets of AI?** Cost, Bridge, Work, and Theory — each must be as low as possible.
+**What are the tenets of superintelligence?** Cost, Bridge, Work, and Theory: the bounds any superintelligence must stay inside, each as low as possible.
+**How does a system earn more room?** Only by staying lit; the tenet limits grow one step at a time, and one dark action tightens them back.
 **What does "Bridge" mean in AI?** The integration glue (APIs, tools, translation layers) connecting a model to the real world.
 **Why count Theory as a cost?** Unverified assumptions are debt; they fail silently later.
 **How do I enforce a Work limit?** Use a bounded loop with a fixed budget, like [bound-loop](https://github.com/fitzyracing1/bound-loop).
