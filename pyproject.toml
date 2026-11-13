@@ -16,6 +16,7 @@ keywords = ["ai", "agents", "ai-rules", "metrics"]
 [project.urls]
 Homepage = "https://fitzyracing1.github.io/ai-tenets/"
 Repository = "https://github.com/fitzyracing1/ai-tenets"
+Funding = "https://github.com/sponsors/fitzyracing1"
 
 [project.scripts]
 tenets-meter = "tenets_meter.cli:main"
